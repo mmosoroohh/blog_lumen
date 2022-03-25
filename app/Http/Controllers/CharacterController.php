@@ -41,7 +41,7 @@ class CharacterController extends Controller
             $response = $this->client->request('GET', 'https://anapioficeandfire.com/api/characters/'. $id);
 
             $character = json_decode(($response->getBody()->getContents()), true);
-    
+
             return response()->json([
                 'message' => 'Data fetched successfully',
                 'data' => $character,
@@ -54,23 +54,23 @@ class CharacterController extends Controller
 
     }
 
-    public function filter(Request $request)
-    {
-        $response = $this->client->request('GET', 'https://anapioficeandfire.com/api/characters');
-        $data = json_decode(($response->getBody()->getContents()), true);
-        $characters = collect($data);
-
-        if(!is_null($request->name)) {
-            $characters->orWhere('name', "LIKE", "%{$request->name}%");
-        }
-        if(!is_null($request->gender)) {
-            $characters->orWhere('gender', "LIKE", "%{$request->gender}%");
-        }
-        if(!is_null($request->age)) {
-           $characters->orWhere('age', "LIKE", "%{$request->age}%");
-        }
-        return $characters;
-    }
+//    public function filter(Request $request)
+//    {
+//        $response = $this->client->request('GET', 'https://anapioficeandfire.com/api/characters');
+//        $data = json_decode(($response->getBody()->getContents()), true);
+//        $characters = collect($data);
+//
+//        if(!is_null($request->name)) {
+//            $characters->orWhere('name', "LIKE", "%{$request->name}%");
+//        }
+//        if(!is_null($request->gender)) {
+//            $characters->orWhere('gender', "LIKE", "%{$request->gender}%");
+//        }
+//        if(!is_null($request->age)) {
+//           $characters->orWhere('age', "LIKE", "%{$request->age}%");
+//        }
+//        return $characters;
+//    }
 
     public function create(Request $request)
     {

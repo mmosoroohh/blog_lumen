@@ -32,7 +32,7 @@ $router->group(['prefix' => 'api'], function($router){
     // Character
     $router->get('characters', 'CharacterController@index');
     $router->get('characters/{id}', 'CharacterController@showSingleCharacter');
-    $router->get('characters/filter', 'CharacterController@filter');
+//    $router->get('characters/filter', 'CharacterController@filter');
 
     // Comment
     $router->post('comments', 'CommentController@store');
