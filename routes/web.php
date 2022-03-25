@@ -27,9 +27,11 @@ $router->group(['prefix' => 'api'], function($router){
 
     // Books
     $router->get('books', 'BookController@index');
+    $router->get('books/{id}', 'BookController@showSingleBook');
 
     // Character
     $router->get('characters', 'CharacterController@index');
+    $router->get('characters/{id}', 'CharacterController@showSingleCharacter');
     $router->get('characters/filter', 'CharacterController@filter');
 
     // Comment

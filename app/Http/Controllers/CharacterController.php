@@ -32,7 +32,25 @@ class CharacterController extends Controller
             'data' => $characters,
             'status' => \Illuminate\Http\Response::HTTP_OK
         ]);
+    }
 
+
+    public function showSingleCharacter($id)
+    {
+        try {
+            $response = $this->client->request('GET', 'https://anapioficeandfire.com/api/characters/'. $id);
+
+            $character = json_decode(($response->getBody()->getContents()), true);
+    
+            return response()->json([
+                'message' => 'Data fetched successfully',
+                'data' => $character,
+                'status' => \Illuminate\Http\Response::HTTP_OK
+            ]);
+        } catch (ModelNotFoundException $e)
+        {
+            return response()->json('Character not found!', 404);
+        }
 
     }
 
@@ -52,22 +70,6 @@ class CharacterController extends Controller
            $characters->orWhere('age', "LIKE", "%{$request->age}%");
         }
         return $characters;
-    }
-
-    public function showAllCharacters()
-    {
-        return response()->json(Character::all());
-    }
-
-    public function showSingleCharacter($id)
-    {
-        try {
-            return response()->json(Character::findorFail($id));
-        } catch (ModelNotFoundException $e)
-        {
-            return response()->json('Character not found!', 404);
-        }
-
     }
 
     public function create(Request $request)

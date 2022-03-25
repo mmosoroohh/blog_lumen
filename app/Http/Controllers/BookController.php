@@ -43,15 +43,19 @@ class BookController extends Controller
 
     }
 
-    public function showAllBooks()
-    {
-        return response()->json(Book::all());
-    }
 
     public function showSingleBook($id)
     {
         try {
-            return response()->json(Book::findorFail($id));
+            $response = $this->client->request('GET', 'https://anapioficeandfire.com/api/books/'. $id);
+
+            $book = json_decode(($response->getBody()->getContents()), true);
+    
+            return response()->json([
+                'message' => 'Data fetched successfully',
+                'data' => $book,
+                'status' => \Illuminate\Http\Response::HTTP_OK
+            ]);
         } catch (ModelNotFoundException $e)
         {
             return response()->json('Book not found!', 404);

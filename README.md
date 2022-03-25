@@ -5,20 +5,77 @@
 [![Latest Stable Version](https://img.shields.io/packagist/v/laravel/lumen-framework)](https://packagist.org/packages/laravel/lumen-framework)
 [![License](https://img.shields.io/packagist/l/laravel/lumen)](https://packagist.org/packages/laravel/lumen-framework)
 
-Laravel Lumen is a stunningly fast PHP micro-framework for building web applications with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Lumen attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as routing, database abstraction, queueing, and caching.
+- Blug Lumen is a simple blog project for TopMama backend engineer assessment test.
+- This is documentation is made on how to use the REST API endpoints created using `AN API of Ice and Fire` "https://anapioficeandfire.com" and how to consume the different resources on their platform.
 
-## Official Documentation
+### Prerequisities
+ In order to install and run this project locally, you would need to have the following installed on your local machine
+  - **PHP 7+**
+  - **Composer**
+  - **MySQL**
 
-Documentation for the framework can be found on the [Lumen website](https://lumen.laravel.com/docs).
+### Installation
+* Clone this repository
 
-## Contributing
+* Navigate to the project directory `cd blog_lumen`
 
-Thank you for considering contributing to Lumen! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+* Run to install dependencies `composer install`
+  
+* Edit the `env` file for the database credentials to your database instance
 
-## Security Vulnerabilities
+* Create a MySQL database
 
-If you discover a security vulnerability within Lumen, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
+* Run the command `php artisan migrate` to create and sync the MySQl database
 
-## License
+* Run the command `php -S localhost:8000 -t public` to run the development server
 
-The Lumen framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## Testing REST API endpoints
+
+<table>
+<tr><th>Test</th>
+<th>API-endpoint</th>
+<th>HTTP-Verbs</th>
+</tr>
+<tr>
+<td>GET ALL BOOKS</td>
+<td>/api/books</td>
+<td>GET</td>
+</tr>
+<tr>
+<td>GET A SINGLE BOOK</td>
+<td>/api/books/{id}</td>
+<td>GET</td>
+</tr>
+<tr>
+<td>GET ALL CHARACTERS</td>
+<td>/api/characters</td>
+<td>GET</td>
+</tr>
+<tr>
+<td>GET A SINGLE CHARACTERS</td>
+<td>/api/characters/{id}</td>
+<td>GET</td>
+</tr>
+<tr>
+<td>GET SORTED CHARACTERS BY NAME</td>
+<td>/api/characters/</td>
+<td>GET</td>
+</tr>
+<tr>
+<td>GET SORTED CHARACTERS BY GENDER</td>
+<td>/api/characters</td>
+<td>GET</td>
+</tr>
+<tr>
+<td>GET SORTED CHARACTERS BY AGE</td>
+<td>/api/characters</td>
+<td>GET</td>
+</tr>
+<tr>
+<td>ADD COMMENT ON A BOOK</td>
+<td>/api/comments</td>
+<td>POST</td>
+</tr>
+</table>
+
+
