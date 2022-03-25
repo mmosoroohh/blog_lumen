@@ -10,7 +10,7 @@
 
 ### Prerequisities
  In order to install and run this project locally, you would need to have the following installed on your local machine
-  - **PHP 7+**
+  - **PHP 8+**
   - **Composer**
   - **MySQL**
 
@@ -77,5 +77,12 @@
 <td>POST</td>
 </tr>
 </table>
+
+# Resources and Documentation
+## API Documentation and Resource
+- Hosted the API on [Heroku](https://blog-lumen-app.herokuapp.com/)
+
+# Authors
+- Arnold M. Osoro - [mmosoroohh](https://github.com/mmosoroohh)
 
 
