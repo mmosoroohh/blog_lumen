@@ -26,6 +26,19 @@ class CharacterController extends Controller
         $response = $this->client->request('GET', 'https://anapioficeandfire.com/api/characters');
 
         $characters = json_decode(($response->getBody()->getContents()), true);
+        $characters = collect($characters)
+            ->when(isset($request->gender), function ($query) use ($request){
+                return $query->where('gender', '=', $request->gender);
+
+        })->when(isset($request->sort), function ($query) use ($request){
+            if($request->sort == 'asc') {
+                return $query->sortBy('gender');
+            }
+            return $query->sortByDesc('gender');
+            });
+            $characters->put('meta_data', [
+                'total_characters' => $characters->count()
+            ]);
 
         return response()->json([
             'message' => 'Data fetched successfully',
@@ -53,24 +66,6 @@ class CharacterController extends Controller
         }
 
     }
-
-//    public function filter(Request $request)
-//    {
-//        $response = $this->client->request('GET', 'https://anapioficeandfire.com/api/characters');
-//        $data = json_decode(($response->getBody()->getContents()), true);
-//        $characters = collect($data);
-//
-//        if(!is_null($request->name)) {
-//            $characters->orWhere('name', "LIKE", "%{$request->name}%");
-//        }
-//        if(!is_null($request->gender)) {
-//            $characters->orWhere('gender', "LIKE", "%{$request->gender}%");
-//        }
-//        if(!is_null($request->age)) {
-//           $characters->orWhere('age', "LIKE", "%{$request->age}%");
-//        }
-//        return $characters;
-//    }
 
     public function create(Request $request)
     {

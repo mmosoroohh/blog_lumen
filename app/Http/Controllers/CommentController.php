@@ -22,7 +22,7 @@ class CommentController extends Controller
         // Validation
         $this->validate($request, [
             'book_id' => 'required',
-            'comment' => 'required'
+            'comment' => 'required| max:500 '
         ]);
 
         // insert data
@@ -31,5 +31,15 @@ class CommentController extends Controller
         $comment = Comments::create($request->all());
 
         return response()->json($comment, 201);
+    }
+
+    public function index(Request $request)
+    {
+        $comments = Comments::whereNull('deleted_at')->orderBy('date', 'desc')->get();
+        return response()->json([
+            'message' => 'Data fetched successfully',
+            'data' => $comments,
+            'status' => \Illuminate\Http\Response::HTTP_OK
+        ]);        
     }
 }
