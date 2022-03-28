@@ -5,7 +5,7 @@
 [![Latest Stable Version](https://img.shields.io/packagist/v/laravel/lumen-framework)](https://packagist.org/packages/laravel/lumen-framework)
 [![License](https://img.shields.io/packagist/l/laravel/lumen)](https://packagist.org/packages/laravel/lumen-framework)
 
-- Blug Lumen is a simple blog project for TopMama backend engineer assessment test.
+- Blug Lumen is a simple blog project for Topup Mama backend engineer assessment test.
 - This is documentation is made on how to use the REST API endpoints created using `AN API of Ice and Fire` "https://anapioficeandfire.com" and how to consume the different resources on their platform.
 
 ### Prerequisities
@@ -78,6 +78,9 @@
 <td>GET</td>
 </tr>
 </table>
+
+## Note
+- The Age field was not available on the characters to work on the two last endpoints under characters list requirements on the assessment but metadata that contains the total number of characters is available
 
 # Resources and Documentation
 ## API Documentation and Resource
