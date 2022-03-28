@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Comments;
 use Illuminate\Http\Request;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 class CommentController extends Controller
 {
@@ -41,5 +42,16 @@ class CommentController extends Controller
             'data' => $comments,
             'status' => \Illuminate\Http\Response::HTTP_OK
         ]);        
+    }
+
+    public function showSingleComment($id)
+    {
+        try {
+            return response()->json(Comments::findorFail($id));
+        } catch (ModelNotFoundException $e)
+        {
+            return response()->json('Comment not found!', 404);
+        }
+         
     }
 }

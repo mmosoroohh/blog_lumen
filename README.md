@@ -57,17 +57,8 @@
 <td>GET</td>
 </tr>
 <tr>
-<td>GET SORTED CHARACTERS BY NAME</td>
-<td>/api/characters/</td>
-<td>GET</td>
-</tr>
 <tr>
 <td>GET SORTED CHARACTERS BY GENDER</td>
-<td>/api/characters</td>
-<td>GET</td>
-</tr>
-<tr>
-<td>GET SORTED CHARACTERS BY AGE</td>
 <td>/api/characters</td>
 <td>GET</td>
 </tr>
@@ -76,11 +67,22 @@
 <td>/api/comments</td>
 <td>POST</td>
 </tr>
+<tr>
+<td>FETCH ALL COMMENTS</td>
+<td>/api/comments</td>
+<td>GET</td>
+</tr>
+<tr>
+<td>FETCH A SINGLE COMMENT</td>
+<td>/api/comments/{id}</td>
+<td>GET</td>
+</tr>
 </table>
 
 # Resources and Documentation
 ## API Documentation and Resource
 - Hosted the API on [Heroku](https://blog-lumen-app.herokuapp.com/)
+- [View Postman collection](TopMama.postman_collection.json)
 
 # Authors
 - Arnold M. Osoro - [mmosoroohh](https://github.com/mmosoroohh)

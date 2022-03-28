@@ -36,5 +36,6 @@ $router->group(['prefix' => 'api'], function($router){
     // Comment
     $router->post('comments', 'CommentController@store');
     $router->get('comments', 'CommentController@index');
+    $router->get('comments/{id}', 'CommentController@showSingleComment');
 
 });
