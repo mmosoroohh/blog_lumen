@@ -59,7 +59,12 @@
 <tr>
 <tr>
 <td>GET SORTED CHARACTERS BY GENDER</td>
-<td>/api/characters</td>
+<td>/api/characters?gender=Male&sort=asc</td>
+<td>GET</td>
+</tr>
+<tr>
+<td>FILTER CHARACTERS BY GENDER</td>
+<td>/api/characters?gender=Male</td>
 <td>GET</td>
 </tr>
 <tr>
@@ -85,7 +90,7 @@
 # Resources and Documentation
 ## API Documentation and Resource
 - Hosted the API on [Heroku](https://blog-lumen-app.herokuapp.com/)
-- [View Postman collection](TopMama.postman_collection.json)
+- [View Postman collection](Topup%20Mama.postman_collection.json)
 
 # Authors
 - Arnold M. Osoro - [mmosoroohh](https://github.com/mmosoroohh)

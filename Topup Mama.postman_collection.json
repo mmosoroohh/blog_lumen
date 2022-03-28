@@ -1,7 +1,7 @@
 {
 	"info": {
 		"_postman_id": "35f39a01-95eb-4802-8248-eddc2ef6d575",
-		"name": "TopMama",
+		"name": "Topup Mama",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -89,12 +89,12 @@
 						},
 						{
 							"key": "name",
-							"value": null,
+							"value": "",
 							"disabled": true
 						},
 						{
 							"key": "age",
-							"value": null,
+							"value": "",
 							"disabled": true
 						},
 						{
@@ -183,6 +183,32 @@
 						"api",
 						"characters",
 						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Filter all characters by gender",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/characters?gender=Male",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"characters"
+					],
+					"query": [
+						{
+							"key": "gender",
+							"value": "Male"
+						}
 					]
 				}
 			},
